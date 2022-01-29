@@ -96,7 +96,7 @@ class NanoIMUBLEClient(object):
         self._imu = imu
         
         self.counter = 0
-        self._csv_file = open('outputdata.csv', 'w')
+        self._csv_file = open(f'outputdata{self._imu}.csv', 'w')
         self._csv = csv.writer(self._csv_file)
         self._csv.writerow(["time","ax", "ay", "az", "gx", "gy", "gz"])
         
@@ -203,7 +203,7 @@ class NanoIMUBLEClient(object):
                 f"{self.data['gz']:+3.3f}")
         nw = datetime.now()
         
-        # self._csv.writerow([str(nw), self.data['ax'], self.data['ay'], self.data['az'] , self.data['gx'] , self.data['gy'] , self.data['gz'] ])
+        self._csv.writerow([str(nw), self.data['ax'], self.data['ay'], self.data['az'] , self.data['gx'] , self.data['gy'] , self.data['gz'] ])
         
         sys.stdout.write(_str)
         sys.stdout.flush()
