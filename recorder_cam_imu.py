@@ -36,7 +36,7 @@ class recorder():
                     # print(tm)
                     
                     # self.out.write(frame)
-                    pickle.dump([tm, frame], self.video_file)
+                    # pickle.dump([tm, frame], self.video_file)
 
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     
